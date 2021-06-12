@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Main } from "./Style";
-import { Headers, Registra, Unete, Verifica } from "../../components";
+import { Complete, Headers, Registra, Unete, Verifica } from "../../components";
 import { StepsAuthentication } from "../../utils";
 
 export function AuthScreen() {
@@ -22,9 +22,10 @@ export function AuthScreen() {
             siguiente información
           </h2>
         )}
-        <Unete />
-        <Verifica />
-        <Registra />
+        {/* <Unete /> */}
+        {page === 0 && <Verifica />}
+        {page === 1 && <Registra />}
+        {page === 2 && <Complete />}
       </Main>
     </div>
   );
