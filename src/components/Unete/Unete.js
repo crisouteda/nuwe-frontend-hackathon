@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { bussiness, pentagon } from "../../assets/Icons";
 import { Box } from "./Styles";
 
