@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  AppLayout,
+  ArtContainer,
+  AuthArt,
+  AuthImage,
+  AuthIntro,
+  DescriptionText,
+  Overlay,
+} from "./App.styled";
+import Building from "./assets/Background.png";
+import { ReverseL, Quotes } from "./assets/Icons";
+import { AuthScreen } from "./screens";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AppLayout>
+        <ArtContainer>
+          <Overlay>
+            <AuthIntro>
+              <Quotes />
+              <DescriptionText>
+                Nuwe es la platforma que convierte el desarrollo profesional, la
+                búsquda de trabajo y la conexiones de personas y empresas en un
+                juego. Haciendo que puedas centrarte en lo que te gusta,
+                programar, diseñar, crear, planear...
+              </DescriptionText>
+              <div style={{ alignSelf: "flex-end" }}>
+                <ReverseL />
+              </div>
+            </AuthIntro>
+          </Overlay>
+          <AuthArt>
+            <AuthImage src={Building} />
+          </AuthArt>
+        </ArtContainer>
+        <AuthScreen />
+      </AppLayout>
+    </>
   );
 }
 
