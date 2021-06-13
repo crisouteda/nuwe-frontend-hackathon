@@ -34,6 +34,7 @@ export function AuthScreen() {
           </>
         )}
         {StepsAuthentication[page]?.safe}
+        {StepsAuthentication[page]?.google}
       </Main>
     </div>
   );
