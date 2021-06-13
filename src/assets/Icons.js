@@ -49,7 +49,7 @@ export const Arrow = () => {
   );
 };
 
-export const pentagon = ({ hover }) => {
+export const Pentagon = ({ hover }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,26 @@ export const pentagon = ({ hover }) => {
   );
 };
 
-export const bussiness = ({ hover }) => {
+export const Developer = ({ hover }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      fill="none"
+      viewBox="0 0 20 20"
+    >
+      <path
+        fill={hover ? Theme.white : Theme.primary}
+        fillRule="evenodd"
+        d="M3.72 12.887a4.167 4.167 0 012.947-1.22h6.666a4.167 4.167 0 014.167 4.166V17.5a.833.833 0 01-1.667 0v-1.667a2.5 2.5 0 00-2.5-2.5H6.667a2.5 2.5 0 00-2.5 2.5V17.5a.833.833 0 01-1.667 0v-1.667c0-1.105.439-2.165 1.22-2.946zM10 3.333a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm-4.167 2.5a4.167 4.167 0 118.334 0 4.167 4.167 0 01-8.334 0z"
+        clipRule="evenodd"
+      ></path>
+    </svg>
+  );
+};
+
+export const Bussiness = ({ hover }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +109,7 @@ export const bussiness = ({ hover }) => {
         clipRule="evenodd"
       ></path>
       <path
-        fill={hover ? Theme.primary : Theme.white}
+        fill={hover ? Theme.white : Theme.primary}
         fillRule="evenodd"
         d="M6.565 1.399A2.5 2.5 0 018.333.667h3.334a2.5 2.5 0 012.5 2.5V16.5a.833.833 0 01-1.667 0V3.167a.833.833 0 00-.833-.834H8.333a.833.833 0 00-.833.834V16.5a.833.833 0 01-1.667 0V3.167a2.5 2.5 0 01.732-1.768z"
         clipRule="evenodd"
