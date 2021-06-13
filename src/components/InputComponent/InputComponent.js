@@ -40,6 +40,7 @@ export function InputComponent({
           isCountry={isCountry}
           selectedCountry={selectedCountry}
           setSelectedCountry={setSelectedCountry}
+          onChange={onChange}
         />
       )}
       <Input
@@ -49,7 +50,7 @@ export function InputComponent({
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
         type={isPassword && !showPassword ? "password" : "text"}
-        value={isCountry ? selectedCountry.country_name : !value ? "" : value}
+        value={!value ? "" : value}
         onChange={(e) => onChange(e.target.value)}
         {...rest}
       />
@@ -67,7 +68,12 @@ export function InputComponent({
   );
 }
 
-function CountryModal({ isCountry, selectedCountry, setSelectedCountry }) {
+function CountryModal({
+  isCountry,
+  selectedCountry,
+  setSelectedCountry,
+  onChange,
+}) {
   const [filter, setFilter] = useState("");
   const [show, setShow] = useState(false);
 
@@ -117,7 +123,9 @@ function CountryModal({ isCountry, selectedCountry, setSelectedCountry }) {
                 <CountryContainer
                   key={c.country_code}
                   onClick={() => {
-                    setSelectedCountry(c);
+                    isCountry
+                      ? onChange(c.country_name)
+                      : setSelectedCountry(c);
                     setFilter("");
                     setShow(!show);
                   }}
