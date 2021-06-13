@@ -5,3 +5,4 @@ export * from "./Registra";
 export * from "./InputComponent";
 export * from "./Modal";
 export * from "./Complete";
+export * from "./Safe";
