@@ -1,4 +1,11 @@
-import { Unete, Registra, Complete, Verifica, Safe } from "../components";
+import {
+  Unete,
+  Registra,
+  Complete,
+  Verifica,
+  Safe,
+  Google,
+} from "../components";
 
 export const StepsAuthentication = [
   {
@@ -11,6 +18,7 @@ export const StepsAuthentication = [
     title: "Registra tu cuenta individual",
     component: <Registra />,
     continuar: "Registrar cuenta",
+    google: <Google />,
   },
   {
     header: "Localización",
