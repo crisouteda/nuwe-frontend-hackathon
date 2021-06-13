@@ -14,11 +14,8 @@ export const ModalContainer = styled.div`
   background: #ffffff;
   position: relative;
   padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07),
-    0px 50.625px 34.875px rgba(0, 0, 0, 0.04725),
-    0px 20px 13px rgba(0, 0, 0, 0.035),
-    0px 4.375px 4.625px rgba(0, 0, 0, 0.02275);
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
   @media (max-width: ${IsPhone}) {
     position: fixed;
     top: 0px;
