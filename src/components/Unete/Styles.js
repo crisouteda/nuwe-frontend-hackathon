@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Theme } from "../../utils";
+import { IsPhone, Theme } from "../../utils";
 
 export const Box = styled.div`
   max-width: min(500px, 70vw);
@@ -11,7 +11,9 @@ export const Box = styled.div`
   border: 1px solid ${Theme.white};
   background: ${Theme.white};
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 50px;
   box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.06);
   &:hover {
     background: ${Theme.lightPrimary};
@@ -20,6 +22,7 @@ export const Box = styled.div`
     border: 1px solid ${Theme.primary};
   }
   div {
+    padding-left: 25px;
     display: flex;
     flex-direction: column;
     h1 {
@@ -33,5 +36,17 @@ export const Box = styled.div`
       font-size: 14px;
       line-height: 17px;
     }
+  }
+  svg,
+  p {
+    position: absolute;
+    transform: translate(-50%);
+  }
+`;
+
+export const HideableSvg = styled.p`
+  padding-bottom: 13px;
+  @media (max-width: ${IsPhone}) {
+    opacity: 0;
   }
 `;
