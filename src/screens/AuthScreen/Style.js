@@ -3,7 +3,7 @@ import { Theme } from "../../utils";
 
 export const Main = styled.div`
   width: 60%;
-  margin-top: 100px;
+  margin-top: 70px;
   margin-left: 20%;
   h1 {
     font-size: 30px;
@@ -30,4 +30,7 @@ export const Guardar = styled.div`
   width: 500px;
   position: relative;
   margin-top: 30px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
