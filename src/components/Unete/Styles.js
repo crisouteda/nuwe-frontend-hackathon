@@ -2,10 +2,12 @@ import styled from "styled-components";
 import { Theme } from "../../utils";
 
 export const Box = styled.div`
-  width: 426px;
+  max-width: min(500px, 70vw);
+  width: 500px;
+  position: relative;
+  margin-top: 30px;
   height: 108px;
   border-radius: 6px;
-  margin-top: 28px;
   border: 1px solid ${Theme.white};
   background: ${Theme.white};
   display: flex;
