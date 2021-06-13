@@ -1,10 +1,10 @@
 import React from "react";
 import { ModalContainer, ModalBg } from "./Style";
 
-export function Modal({ children }) {
+export function Modal({ children, containerStyle }) {
   return (
     <ModalBg>
-      <ModalContainer>{children}</ModalContainer>
+      <ModalContainer style={containerStyle}>{children}</ModalContainer>
     </ModalBg>
   );
 }
