@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Guardar, Main } from "./Style";
-import { Headers } from "../../components";
+import { Headers, Unete } from "../../components";
 import { StepsAuthentication } from "../../utils";
 
 export function AuthScreen() {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   return (
     <div>
       <Headers
@@ -22,11 +22,16 @@ export function AuthScreen() {
             siguiente información
           </h2>
         )}
-        {StepsAuthentication[page]?.component}
-        {page > 0 && (
-          <Guardar onClick={() => setPage(page + 1)}>
-            {StepsAuthentication[page]?.continuar}
-          </Guardar>
+
+        {page === 0 ? (
+          <Unete nextPage={setPage} />
+        ) : (
+          <>
+            {StepsAuthentication[page]?.component}
+            <Guardar onClick={() => setPage(page + 1)}>
+              {StepsAuthentication[page]?.continuar}
+            </Guardar>
+          </>
         )}
         {StepsAuthentication[page]?.safe}
       </Main>
