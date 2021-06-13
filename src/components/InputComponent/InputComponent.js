@@ -7,7 +7,9 @@ import {
   InputBox,
   ShowPassword,
   CountryContainer,
+  FlagContainer,
   FlagPicker,
+  Circle,
 } from "./Style";
 
 export function InputComponent({
@@ -19,18 +21,27 @@ export function InputComponent({
   containerStyle,
   isPassword,
   isPhone,
+  inputLength,
+  isCountry,
   ...rest
 }) {
   if (!id) throw new Error("specify an id for each input");
   const [focus, setFocus] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(countries[211]);
 
   return (
     <InputBox style={containerStyle}>
       <Label htmlFor={id} focus={focus}>
         {label}
       </Label>
-      {isPhone && <CountryModal />}
+      {(isPhone || isCountry) && (
+        <CountryModal
+          isCountry={isCountry}
+          selectedCountry={selectedCountry}
+          setSelectedCountry={setSelectedCountry}
+        />
+      )}
       <Input
         isPhone={isPhone}
         placeholder={placeholder}
@@ -38,7 +49,7 @@ export function InputComponent({
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
         type={isPassword && !showPassword ? "password" : "text"}
-        value={!value ? "" : value}
+        value={isCountry ? selectedCountry.country_name : !value ? "" : value}
         onChange={(e) => onChange(e.target.value)}
         {...rest}
       />
@@ -47,14 +58,18 @@ export function InputComponent({
           {showPassword ? "Ocultar" : "Mostrar"}
         </ShowPassword>
       )}
+      {inputLength && (
+        <ShowPassword>
+          <Circle success={value.length === inputLength}>✔</Circle>
+        </ShowPassword>
+      )}
     </InputBox>
   );
 }
 
-function CountryModal() {
+function CountryModal({ isCountry, selectedCountry, setSelectedCountry }) {
   const [filter, setFilter] = useState("");
   const [show, setShow] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState(countries[211]);
 
   const filteredCountries = countries
     .filter(
@@ -77,15 +92,13 @@ function CountryModal() {
             type={"text"}
             value={!filter ? "" : filter}
             onChange={(e) => setFilter(e.target.value)}
-            style={{ width: 300 }}
           />
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns:
-                filteredCountries.length === 0 ? "auto" : "1fr 1fr 1fr  1fr",
-              height: 350,
-            }}
+          <FlagContainer
+            style={
+              filteredCountries.length === 0
+                ? { gridTemplateColumns: "auto" }
+                : {}
+            }
           >
             {filteredCountries.length === 0 ? (
               <div
@@ -97,7 +110,7 @@ function CountryModal() {
                   height: "100%",
                 }}
               >
-                no encuentro una mierda, buca de nuevo
+                no encuentro una mierda, busca de nuevo
               </div>
             ) : (
               filteredCountries.map((c) => (
@@ -114,22 +127,28 @@ function CountryModal() {
                     alt=""
                   />
                   <div style={{ color: "#666" }}>
-                    {c.country_code} +{c.phone_code}
+                    {isCountry
+                      ? c.country_name
+                      : `${c.country_code} +${c.phone_code}`}
                   </div>
                 </CountryContainer>
               ))
             )}
-          </div>
+          </FlagContainer>
         </Modal>
       ) : (
-        <FlagPicker onClick={() => setShow(!show)}>
-          <img
-            src={`https://www.countryflags.io/${selectedCountry.country_code}/flat/24.png`}
-            alt=""
-          />
-          <div style={{ marginLeft: 14, marginRight: 8, color: "#8692A6" }}>
-            +{selectedCountry.phone_code}
-          </div>
+        <FlagPicker isCountry={isCountry} onClick={() => setShow(!show)}>
+          {!isCountry && (
+            <>
+              <img
+                src={`https://www.countryflags.io/${selectedCountry.country_code}/flat/24.png`}
+                alt=""
+              />
+              <div style={{ marginLeft: 14, marginRight: 8, color: "#8692A6" }}>
+                +{selectedCountry.phone_code}
+              </div>
+            </>
+          )}
           <div style={{ fontSize: 12 }}>▼</div>
         </FlagPicker>
       )}
