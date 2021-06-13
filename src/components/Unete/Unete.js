@@ -1,5 +1,5 @@
 import React from "react";
-import { bussiness, pentagon } from "../../assets/Icons";
+// import { bussiness, pentagon } from "../../assets/Icons";
 import { Box } from "./Styles";
 
 export function Unete() {
