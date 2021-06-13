@@ -1,12 +1,22 @@
 import React, { useState } from "react";
+import { Guardar } from "../../screens/AuthScreen/Style";
 import { InputComponent } from "../InputComponent";
 import { Square, Acepto } from "./Style";
 
-export function Registra() {
+export function Registra({ nextPage, continuar, setShowModal }) {
   const [clicked, setClicked] = useState(false);
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleInput = (email) => {
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      setShowModal(true);
+    } else {
+      nextPage(2);
+    }
+  };
+
   return (
     <>
       <InputComponent
@@ -37,6 +47,12 @@ export function Registra() {
         </Square>
         <h1>Acepto términos y condiciones</h1>
       </Acepto>
+      <Guardar
+        disabled={!clicked || !password || !email}
+        onClick={() => handleInput(email)}
+      >
+        {continuar}
+      </Guardar>
     </>
   );
 }

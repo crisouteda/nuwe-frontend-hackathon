@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Guardar } from "../../screens/AuthScreen/Style";
 import { InputComponent } from "../InputComponent";
 
-export function Complete() {
+export function Complete({ nextPage, continuar }) {
   const [phone, setPhone] = useState("");
   const [adress, setAdress] = useState("");
   const [country, setCountry] = useState("");
@@ -22,13 +23,19 @@ export function Complete() {
         label="Dirección"
       />
       <InputComponent
-        id="Contraseña"
+        id="Country"
         value={country}
         onChange={setCountry}
         placeholder="Selecciona uno"
         label="País de residencia"
         isCountry
       />
+      <Guardar
+        disabled={!country || !adress || !phone}
+        onClick={() => nextPage(3)}
+      >
+        {continuar}
+      </Guardar>
     </>
   );
 }
