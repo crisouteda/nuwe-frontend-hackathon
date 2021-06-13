@@ -19,8 +19,9 @@ export const AuthArt = styled.div`
 `;
 
 export const AuthImage = styled.img`
+  position: fixed;
   margin-top: 10%;
-  width: 100%;
+  width: 46.25vw;
   height: 100%;
   max-height: 100%;
   object-fit: cover;
