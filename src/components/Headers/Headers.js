@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { StepsAuthentication } from "../../utils";
+import React from "react";
 import { Header, Volver, Steps, Login } from "./Style";
 import { Arrow } from "../../assets/Icons";
 
