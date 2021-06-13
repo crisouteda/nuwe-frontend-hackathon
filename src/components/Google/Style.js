@@ -7,17 +7,21 @@ export const Main = styled.div`
   position: relative;
   margin-top: 30px;
   margin-right: 30px;
-  height: 108px;
+  margin-bottom: 65px;
+  height: 64px;
   border-radius: 6px;
   background: ${Theme.white};
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.06);
+  &:hover {
+    cursor: pointer;
+  }
   h1 {
     padding-left: 43px;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 16px !important;
     line-height: 19px;
     display: flex;
     align-items: center;
@@ -36,10 +40,10 @@ export const Separador = styled.div`
   div {
     width: 45%;
     height: 0px;
-    border: 0.5px solid ${Theme.lightBody};
+    border-top: 1px solid ${Theme.lightBody};
   }
   h1 {
-    font-size: 12px;
+    font-size: 12px !important;
     line-height: 15px;
     margin-left: 35px;
     margin-right: 35px;
