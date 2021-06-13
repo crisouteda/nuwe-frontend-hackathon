@@ -47,6 +47,9 @@ export const Volver = styled.div`
   span {
     margin-left: 10px;
   }
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Steps = styled.div`
