@@ -47,3 +47,9 @@ npm start
 La web ha sido desarollada con React.js y styled-components.
 
 La forma en que se ha gestionado las páginas es mediante un [objeto](https://github.com/crisouteda/nuwe-frontend-hackathon/blob/main/src/utils/StepsAuthentication.js) que contiene los componentes de cada página que se renderiza cuando cambia un índice.
+
+El componente más utilizado es un input que admite difetentes tipo de valores y cuyas propiedades varían según el tipo de valor (paises, teléfonos, contraseñas, email, número clave de caracteres...)
+
+Para hacer la aplicación reactiva para móviles, se toma una constante de 800px como mínimo de pantalla a partir del cual aplicar el diseño para móviles.
+
+La validación del email se hace mediante estructuras regulares.
